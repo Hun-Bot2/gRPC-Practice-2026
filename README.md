@@ -1,4 +1,5 @@
 # gRPC Practice 2026
+Chapter 2: https://hun-bot2.github.io/study/gRPC/gRPC-basic
 
 ## 출처
 **"gRPC: Up and Running"**  
@@ -19,11 +20,11 @@ ISBN: 978-1492058335
 
 ## Book Chapters (Go Implementation)
 
-### Chapter 01 - Introduction to gRPC
+### Chapter 01 - Introduction to gRPC [FIN]
 No code samples required
 
-### Chapter 02 - Getting Started with gRPC
-- ✅ ProductInfo Service (Basic gRPC)
+### Chapter 02 - Getting Started with gRPC [FIN]
+- ProductInfo Service (Basic gRPC)
 
 ### Chapter 03 - gRPC Communication Patterns
 - Order Service (Unary, Server Streaming, Client Streaming, Bidirectional Streaming)
@@ -65,7 +66,7 @@ No code samples required
 
 ## Repository Structure
 
-```
+```folder
 gRPC-Practice-2026/
 ├── productinfo/          # Chapter 02: Getting Started with gRPC
 └── Readmd.md
