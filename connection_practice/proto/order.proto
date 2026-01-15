@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package ecommerce;
+option go_package = "../pb";
+
+import "google/protobuf/wrappers.proto"; // StringValue 등을 위해 필요
+
+service OrderManagement {
+    // 1. Unary (productinfo에서 구현)
+    rpc GetOrder(OrderRequest) returns (Order);
+
+    // 2. Server Streaming (검색 결과를 계속 스트림으로 받음)
+    rpc SearchOrders(google.protobuf.StringValue) returns (stream Order);
+
+    // 3. Client Streaming (주문 내역을 계속 보내고, 마지막에 요약 문자열 하나 받음)
+    rpc UpdateOrders(stream Order) returns (google.protobuf.StringValue);
+
+    // 4. Bidirectional Streaming (주문을 계속 보내고, 처리 결과를 계속 받음 - 채팅 처럼)
+    rpc ProcessOrders(stream google.protobuf.StringValue) returns (stream CombinedShipment);
+}
+
+message OrderRequest {
+    string id = 1;
+}
+
+message Order {
+    string id = 1;
+    repeated string items = 2;
+    string description = 3;
+    float price = 4;
+    string destination = 5;
+}
+
+message CombinedShipment {
+    string id = 1;
+    string status = 2;
+    repeated Order ordersList = 3;
+}
